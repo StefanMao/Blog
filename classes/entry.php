@@ -1,5 +1,4 @@
 <?php 
-
     class Entry {
 
         private $id;
@@ -11,15 +10,15 @@
         private $dbh;
         private $error;
 
-    
-
-    public  function _construct(){ 
+    public  function __construct(){ 
         #connect database
         
-        $this->$dbh= new PDO("mysql:dbname=blog;host=localhost;",root,'5566');
+        $this->dbh= new PDO("mysql:dbname=blog;host=localhost;",'root','5566');
+        $this->dbh->exec("SET CHARACTER SET utf8");
+
      }
 
-    public function creatNew(){
+    public function creatNew($author, $title, $excerpt, $content){
 
         $this->setByParams( -1, date("d.m.Y h:m"), $author, $title, $excerpt, $content);
      }
@@ -35,23 +34,26 @@
 
      }
     
-    public function setByParams( $id , $content, $title, $excerpt ,$author){
-
-        $this->id =$id;
-        $this->author =$author;
-        $this->title =$title;
-        $this->content=$content;
-        $this->excerpt=$excerpt;
-
+    public function setByParams( $id ,$date, $content, $title, $excerpt ,$author){
+        if (strlen($author) == 0) {
+            $this->id = -1;
+        } else {
+            $this->id = $id;
+            $this->author = $author;
+            $this->date = $date;
+            $this->title = $title;
+            $this->excerpt = $excerpt;
+            $this->content = $content;
+        }
      }
 
-    public function setByRow ($Row){
+    public function setByRow ($row){
 
         $this->setByParams(
             $row['entry_id'],
             $row['entry_date'],
             $row['entry_author'],
-            $row['entry_excrept'],
+            $row['entry_excerpt'],
             $row['entry_title'],
             $row['entry_content']
 
@@ -61,14 +63,15 @@
 
     public function sqlInsertEntry(){
 
+        
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        $query='INSERT INTO entrys ( entry_author, entry_date, entry_excerpt, entry_title,entry_content)
+        $query='INSERT INTO entries ( entry_author, entry_date, entry_excerpt, entry_title,entry_content)
         VALUES(:entry_author, :entry_date, :entry_excerpt, :entry_title,:entry_content);';
 
         $stmt=$this->dbh->prepare($query);
         
-        $result=$stmt->excute(array(
+        $result=$stmt->execute(array(
             ':entry_author' => $this->author,
             ':entry_date' => $this->date,
             ':entry_excerpt' => $this->excerpt,
@@ -76,9 +79,10 @@
             ':entry_content' => $this->content
         ));
 
+       // print_r($result);
 
         $this->error=$this->dbh->errorInfo();
-        print_r($this->error);
+        //print_r($this->error);
 
 
 
@@ -93,7 +97,7 @@
             ':entry_author' => $this->author
         ));
         $this->error = $this->dbh->errorInfo();
-        print_r($this->error);
+        //print_r($this->error);
         
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         //print_r($row);
@@ -103,11 +107,13 @@
 
      }
 
-    public function sqlSelectById($post_id){
+    public function sqlSelectById($entry_id){
 
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
         $query = 'SELECT * FROM entries WHERE entry_id= :entry_id;';
         $stmt = $this->dbh->prepare($query);
+        
         $result = $stmt->execute(array(
             ':entry_id' => $entry_id
         ));
@@ -129,7 +135,7 @@
             entry_content = :entry_content, 
             entry_excerpt = :entry_excerpt 
             WHERE entry_id = :entry_id;';
-            
+
         $stmt = $this->dbh->prepare($query);
         $result = $stmt->execute(array(
             ':entry_author' => $this->author,
