@@ -9,7 +9,7 @@
 
 	$entry = new Entry();
 
-	$entry->SqlSelectEntryById($_GET['entry_id']);
+	$entry->sqlSelectById($_GET['entry_id']);
 
 	//print_r($_GET);
 	//print_r($entry);
