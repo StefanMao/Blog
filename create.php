@@ -1,19 +1,18 @@
-
-	<?php require_once 'includes/header.php'; 
+<?php 
+	
+	require_once 'includes/header.php'; 
 	require_once 'classes/entry.php';
 
 	if (isset($_POST['publishing'])) {
 
 		$entry = new Entry();
-		$entry->createNewFromPOST($_POST);
-
-		$entry->SqlInsertEntry();
+		$entry->creatNewformPOST($_POST);
+		$entry->sqlInsertEntry();
 ?>
-	<a href="single.php?entry_id=<?php echo $entry->getId(); ?>">View Entry</a>
+	<a href="single.php?entry_id= <?php echo $entry->getId(); ?>">View Entry</a>
 <?php
 	}
 	?>
-
 				<!-- Main -->
 					<div id="main">
 
