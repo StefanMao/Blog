@@ -6,6 +6,7 @@ class Dbh {
 
     public function __construct() {
         $this->dbh = new PDO("mysql:dbname=blog;host=localhost;", 'root', '5566');
+        $this->dbh->exec("SET CHARACTER SET utf8");
     }
 
     public function executeQuery($query) {
