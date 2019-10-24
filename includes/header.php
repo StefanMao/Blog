@@ -21,11 +21,11 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="#">Future Imperfect</a></h1>
+						<h1><a href="#">首頁</a></h1>
 						<nav class="links">
 							<ul>
-								<li><a href="index.php">home</a></li>
-								<li><a href="create.php">create post</a></li>
+								<li><a href="index.php">文章</a></li>
+								<li><a href="create.php">文章撰寫</a></li>
 								<li><a href="#">Feugiat</a></li>
 								<li><a href="#">Tempus</a></li>
 								<li><a href="#">Adipiscing</a></li>
