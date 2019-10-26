@@ -32,6 +32,38 @@ class Dbh {
 
         return $entry;
     }
+
+    public function login_data($query)
+    {
+        $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $this->dbh->prepare($query);
+        $result = $stmt->execute();
+        
+
+
+        //$row_result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($row_result=$stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            $dbusername=$row_result['username'];
+            $dbuserpassword=$row_result["password"];
+             print_r($dbusername);
+             print_r($dbuserpassword);
+             echo"登入成功!";
+        }
+        else
+        {
+            echo"帳號密碼錯誤";
+        }
+
+
+
+       
+
+       
+
+
+    }
 }
 
 ?>
