@@ -33,34 +33,29 @@ class Dbh {
         return $entry;
     }
 
-    public function login_data($query)
+    public function login_data($query,&$dbusername,&$dbuserpassword)
     {
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $this->dbh->prepare($query);
         $result = $stmt->execute();
         
 
-
         //$row_result = $stmt->fetch(PDO::FETCH_ASSOC);
+        
 
         if($row_result=$stmt->fetch(PDO::FETCH_ASSOC))
         {
             $dbusername=$row_result['username'];
             $dbuserpassword=$row_result["password"];
-             print_r($dbusername);
-             print_r($dbuserpassword);
-             echo"登入成功!";
+             //print_r($dbusername);
+             //print_r($dbuserpassword);            
+            return true; //有找到符合的帳號資料
         }
         else
         {
-            echo"帳號密碼錯誤";
+            return false;//沒有找到符合的帳號資料
         }
 
-
-
-       
-
-       
 
 
     }
