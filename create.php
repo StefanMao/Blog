@@ -9,7 +9,7 @@
 		$entry->creatNewformPOST($_POST);
 		$entry->sqlInsertEntry();
 ?>
-	<a href="single.php?entry_id= <?php echo $entry->getId(); ?>">View Entry</a>
+	<a href="single.php?entry_id= <?php echo $entry->getId(); ?>">已成功發表文章，查看最新發文</a>
 <?php
 	}
 	?>
@@ -20,8 +20,8 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">Magna sed adipiscing</a></h2>
-										<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
+										<h2> 管理者後台發文系統</h2>
+										<p></p>
 									</div>
 								</header>
 								<div id="create_form">
