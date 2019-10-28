@@ -6,7 +6,7 @@
 -->
 <html>
     <head>
-		<title>Single - Future Imperfect by HTML5 UP</title>
+		<title>Mao_個人網站</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -25,10 +25,8 @@
 						<nav class="links">
 							<ul>
 								<li><a href="index.php">文章</a></li>
-								<li><a href="create.php">文章撰寫</a></li>
-								<li><a href="#">Feugiat</a></li>
-								<li><a href="#">Tempus</a></li>
-								<li><a href="#">Adipiscing</a></li>
+								<li><a href="./2048game/2048game.html">2048小遊戲</a></li>
+								
 							</ul>
 						</nav>
 						<nav class="main">
@@ -89,7 +87,7 @@
 						<!-- Actions -->
 							<section>
 								<ul class="actions vertical">
-									<li><a href="#" class="button big fit">Log In</a></li>
+									<li><a href="./login.html" class="button big fit">Log In</a></li>
 								</ul>
 							</section>
 
