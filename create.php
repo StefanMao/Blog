@@ -9,7 +9,11 @@
 		$entry->creatNewformPOST($_POST);
 		$entry->sqlInsertEntry();
 ?>
+	
 	<a href="single.php?entry_id= <?php echo $entry->getId(); ?>">已成功發表文章，查看最新發文</a>
+	
+	
+	<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
 <?php
 	}
 	?>
@@ -34,14 +38,18 @@
 									<input type="text" name="entry_author" id="author" />
 
 									<label for="">Excerpt</label>
-									<textarea name="entry_excerpt" id="title" cols="30" rows="10"></textarea>
+									<textarea name="entry_excerpt" id="excerpt" cols="30" rows="10"></textarea>
 
 									<label for="">Content</label>
-									<textarea name="entry_content" id="title" cols="30" rows="10"></textarea>
-
+									
+									<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+									<textarea name="entry_content" id="content" cols="30" rows="10" ></textarea>
+									<script>CKEDITOR.replace("entry_content");</script>	
+										
 									<input type="hidden" name="publishing" />
 
 									<input type="submit" name="submit" id="submit" value="Publish" />
+									
 									</form>
 								</div>
 								<footer>

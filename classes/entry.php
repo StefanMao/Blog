@@ -26,8 +26,8 @@
 
         $this->creatNew(
 
-            $post['entry_author'],
             $post['entry_title'],
+            $post['entry_author'],
             $post['entry_excerpt'],
             $post['entry_content']
         );
@@ -79,7 +79,7 @@
             ':entry_content' => $this->content
         ));
 
-       // print_r($result);
+       print_r($result);
 
         $this->error=$this->dbh->errorInfo();
         //print_r($this->error);
