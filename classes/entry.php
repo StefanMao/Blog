@@ -25,16 +25,15 @@
     public function creatNewformPOST( $post ){
 
         $this->creatNew(
-
-            $post['entry_title'],
             $post['entry_author'],
+            $post['entry_title'],
             $post['entry_excerpt'],
             $post['entry_content']
         );
 
      }
     
-    public function setByParams( $id ,$date, $content, $title, $excerpt ,$author){
+    public function setByParams( $id ,$date, $author,$title,$excerpt,$content){
         if (strlen($author) == 0) {
             $this->id = -1;
         } else {
@@ -67,7 +66,7 @@
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         $query='INSERT INTO entries ( entry_author, entry_date, entry_excerpt, entry_title,entry_content)
-        VALUES(:entry_author, :entry_date, :entry_excerpt, :entry_title,:entry_content);';
+        VALUES(:entry_author, :entry_date, :entry_excerpt, :entry_title, :entry_content);';
 
         $stmt=$this->dbh->prepare($query);
         
@@ -79,8 +78,7 @@
             ':entry_content' => $this->content
         ));
 
-       print_r($result);
-
+      
         $this->error=$this->dbh->errorInfo();
         //print_r($this->error);
 

@@ -27,7 +27,7 @@
 									</div>
 									<div class="meta">
 										<time class="published"><?php echo $entry->getDate(); ?></time>
-										<a href="#" class="author"><span class="name"><?php echo $entry->getAuthor(); ?></span><img src="images/avatar.jpg" alt="" /></a>
+										<a href="#" class="author"><span class="name"><?php echo $entry->getAuthor(); ?></span><img src="images/maomao.jpg" alt="" /></a>
 									</div>
 								</header>
 								<div class="content">
@@ -40,6 +40,15 @@
 										<li><a href="#" class="icon fa-comment">128</a></li>
 									</ul>
 								</footer>
+
+								<section id="footer">
+								
+									<ul class="actions">
+									<li><a href="index.php" class="button">反回文章列表</a></li>
+									</ul>
+			
+							</section>
+
 							</article>
 <?php } else { ?>
 	<!-- Post -->

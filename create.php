@@ -5,6 +5,7 @@
 
 	if (isset($_POST['publishing'])) {
 
+		//print_r($_POST);
 		$entry = new Entry();
 		$entry->creatNewformPOST($_POST);
 		$entry->sqlInsertEntry();
@@ -23,14 +24,13 @@
 						<!-- Post -->
 							<article class="post">
 								<header>
-									<div class="title">
+									<div class="title" style="text-align:center;"> 
 										<h2> 管理者後台發文系統</h2>
 										<p></p>
 									</div>
 								</header>
 								<div id="create_form">
 									<form action="create.php" method="POST">
-
 									<label for="">Title</label>
 									<input type="text" name="entry_title" id="title" />
 
