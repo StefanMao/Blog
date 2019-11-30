@@ -55,6 +55,14 @@ DBtable :user
 
 
 
+## 功能新增
+### [新增功能 / JavaScript ] 「判斷新增文章表單欄位內容不能為Null」
+  「判斷新增文章表單欄位內容不能為Null  
+    1.【onsubmit】Form表單onsubmit事件用法  
+    2.撰寫JS  
+    相關檔案 create.php 及 create.js  
+
+
 
 
 
