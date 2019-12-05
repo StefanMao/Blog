@@ -42,7 +42,13 @@
 
 ### 3.顯示文章頁面
 
-![alt tag](http://imgur.com/tRbCri0.jpg)
+(1) 列出所有文章
+![alt tag](http://imgur.com/7OyEc1z.jpg)
+
+(2) 點擊閱讀按鈕，則顯示文章完整內容
+
+![alt tag](http://imgur.com/ZC7wNsS.jpg)
+
 
 ### 4.Mysql
 DBname : blog
